@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Pertanyaan;
 use Illuminate\Http\Request;
+use App\Models\Question;
+use App\Models\Responden;
+use App\Models\Answer;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -13,42 +16,66 @@ class HomeController extends Controller
 
     public function index()
     {
-        $pertanyaan = Pertanyaan::first();
-        return view('sabha', ['pertanyaan' => $pertanyaan]);
+        $question = Question::first();
+        return view('sabha', ['question' => $question]);
     }
 
-    public function pertanyaan($id, $i)
+    public function questionnaire($id, $i)
     {
         $i++;
         if(is_numeric($id)){
-            $pertanyaan = Pertanyaan::find($id);
+            $question = Question::find($id);
             if($i==1){
-                $pertanyaan['tombol'] = '<button id="'.$i.'" class="next">NEXT</button>';
+                $question['tombol'] = '<button id="'.$i.'" class="next">Next</button>';
             }
             else{
-                $pertanyaan['tombol'] = '<button id="'.$i.'" class="next">NEXT</button>';
+                $question['tombol'] = '<button id="'.$i.'" class="next">Next</button>';
             }
-            $pertanyaan['form'] = "
+            $question['form'] = "
             <div id='form".$i."' class='form form-inner'>
                 <div class='question'>
-                    <h3>".$pertanyaan->pertanyaan."</h3>
+                    <h3>".$question->question."</h3>
                 </div>
                 <div>
-                    <input id='jawaban[".$i."]' type='hidden' name='jawaban[".$i."]' value=''>
-                    <button id='".$i."' href='".route('pertanyaan',[$pertanyaan->ya, $i])."' class='answer' answer='yes'>yes</button>
-                    <button id='".$i."' href='".route('pertanyaan',[$pertanyaan->tidak, $i])."' class='answer' answer='no'>no</button>
+                    <input id='answer[".$i."]' type='hidden' name='answer[".$i."]' value=''>
+                    <button id='".$i."' href='".route('questionnaire',[$question->yes, $i])."' class='answer answer-yes' answer='yes'>yes</button>
+                    <button id='".$i."' href='".route('questionnaire',[$question->no, $i])."' class='answer answer-no' answer='no'>no</button>
                 </div>
                 <div class='page page".$i."'>
-                    <button id='".$i."' class='back'>back</button>
+                    <button id='".$i."' class='back'>Back</button>
                 </div>
             </div>";
-            return response()->json($pertanyaan);
+            return response()->json($question);
         }
         else{
-            $pertanyaan['tombol'] = '<button id="'.$i.'" class="next">SUBMIT</button>';
-            $pertanyaan['form'] = "";
-            return response()->json($pertanyaan);
+            $question['tombol'] = '<button type="submit" id="submit" class="next">SUBMIT</button>';
+            $question['form'] = "";
+            return response()->json($question);
         }
     }
 
+    public function result(Request $request)
+    {
+        Responden::create([
+            'name' => $request->name,
+            'email' => $request->email
+        ]);
+        $id = DB::getPdo()->lastInsertId();
+        $i = 1;
+        foreach($request->answer as $answer){
+            Answer::create([
+                'respondens_id' => $id,
+                'questions_id' => $i,
+                'answer' => $answer
+            ]);
+            $i = Question::find($i);
+            if($answer==1){
+                $i = $i->yes;
+            }
+            else{
+                $i = $i->no;
+            }
+        }
+        return response()->json($i);
+    }
 }
