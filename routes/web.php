@@ -20,5 +20,6 @@ Auth::routes(['register' => false]);
         Route::get('/', 'RespondenController@index')->name('responden.index');
         Route::delete('delete/{id}', 'RespondenController@delete')->name('responden.delete');
         Route::get('data', 'RespondenController@data')->name('responden.data');
+        Route::get('export', 'RespondenController@export')->name('responden.export');
     });
 // });

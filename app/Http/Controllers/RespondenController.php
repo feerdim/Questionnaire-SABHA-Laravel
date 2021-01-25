@@ -6,6 +6,8 @@ use App\Models\Question;
 use App\Models\Responden;
 use App\Models\Answer;
 use DataTables;
+use Rap2hpoutre\FastExcel\FastExcel;
+use Rap2hpoutre\FastExcel\SheetCollection;
 
 class RespondenController extends Controller
 {
@@ -61,10 +63,10 @@ class RespondenController extends Controller
                 $i=0;
                 foreach($model->answers as $answer){
                     if($answer->answer){
-                        $return[$i] = 'yes';
+                        $return[$i] = 'iya';
                     }
                     else{
-                        $return[$i] = 'no';
+                        $return[$i] = 'tidak';
                     }
                     $i++;
                     if($many==$i){
@@ -82,5 +84,32 @@ class RespondenController extends Controller
             ->addIndexColumn()
             ->removeColumn([])
             ->make(true);
+    }
+
+    public function export()
+    {
+        $answers = Answer::get();
+        $i = 0;
+        foreach($answers as $answer){
+            $model[$i]['no'] = $i+1;
+            $model[$i]['name'] = Responden::find($answer->respondens_id)->name;
+            $model[$i]['email'] = Responden::find($answer->respondens_id)->email;
+            $model[$i]['question'] = Question::find($answer->questions_id)->question;
+            if($answer->answer){
+                $model[$i]['answer'] = 'iya';
+            }
+            else{
+                $model[$i]['answer'] = 'tidak';
+            }
+            $model[$i]['created_at'] = date($answer->created_at);
+            $model[$i]['updated_at'] = date($answer->updated_at);
+            $i++;
+        }
+        $responden = Responden::get();
+        $sheets = new SheetCollection([
+            $model,
+            $responden
+        ]);
+        return (new FastExcel($sheets))->download('file.xlsx');
     }
 }

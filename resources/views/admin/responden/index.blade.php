@@ -7,10 +7,10 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Responden</h1>
+                    <h1 class="m-0">Hasil Responden</h1>
                 </div>
                 <div class="col-sm-6">
-                    {{-- <button type="button" href="{{ route('responden.create') }}" class="float-sm-right btn btn-primary btn-sm modal-show" name="Tambah Data"><i class="nav-icon fas fa-plus"></i> Add New</button> --}}
+                    <a type="button" href="{{ route('responden.export') }}" class="float-sm-right btn btn-primary btn-sm" name="Export Excel"><i class="nav-icon fas fa-file-export"></i> Export Excel</a>
                 </div>
             </div>
         </div>

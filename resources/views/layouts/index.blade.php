@@ -35,17 +35,17 @@
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
               <a href="{{ route('question.index') }}" class="nav-link {{ (request()->is('question*')) ? 'active' : '' }}">
-                <i class="nav-icon fas fa-home"></i>
+                <i class="nav-icon fas fa-question-circle"></i>
                 <p>
-                  Kuesioner
+                  Pertanyaan
                 </p>
               </a>
             </li>
             <li class="nav-item">
               <a href="{{ route('responden.index') }}" class="nav-link {{ (request()->is('responden*')) ? 'active' : '' }}">
-                <i class="nav-icon fas fa-home"></i>
+                <i class="nav-icon fas fa-poll-h"></i>
                 <p>
-                  Hasil
+                  Hasil Responden
                 </p>
               </a>
             </li>
@@ -70,7 +70,7 @@
       <strong>Copyright &copy; 2021 <a href="https://sabha.com">SABHA</a>.</strong>
       All rights reserved.
       <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> 0.0.2-b
+        <b>Version</b> 0.0.4-b
       </div>
     </footer>
   </div>
