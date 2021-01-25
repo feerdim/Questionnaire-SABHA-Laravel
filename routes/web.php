@@ -7,7 +7,6 @@ Route::post('result', 'HomeController@result')->name('result');
 Auth::routes(['register' => false]);
 
 // Route::middleware('auth')->group(function(){
-    Route::get('home', 'AdminController@index')->name('home');
     Route::prefix('question')->group(function(){
         Route::get('/', 'QuestionController@index')->name('question.index');
         Route::get('create', 'QuestionController@create')->name('question.create');

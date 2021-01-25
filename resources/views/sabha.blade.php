@@ -98,17 +98,17 @@
           <span class="nav-title">A</span>
         </span>  
       </nav>
-      <form id="questionnaire" class="form" method="POST" action="{{ route('result') }}" files=true>
+      <form id="questionnaire" class="form" method="POST" action="{{ route('result') }}" name="form" files=true>
         {{ csrf_field() }} {{ method_field('POST') }}
         <div id="form" class="form-inner">
           <div class="question">
             <h3>
               <div class="label">Nama</div>
-              <input type="text" class="fill" name="name">
+              <input type="text" class="fill" name="name" id ="name">
             </h3>
             <h3>
               <div class="label">Email</div>
-              <input type="text" class="fill" name="email">
+              <input type="text" class="fill" name="email" id="email">
             </h3>
           </div>
           <div class="page">
@@ -121,8 +121,8 @@
           </div>
           <div>
             <input id="answer[0]" type="hidden" name="answer[0]" value="">
-            <button href="{{route('questionnaire',[$question->yes, 0])}}" id="0" class="answer answer-yes" answer="yes">yes</button>
-            <button href="{{route('questionnaire',[$question->no, 0])}}" id="0" class="answer answer-no" answer="no">no</button>
+            <button href="{{route('questionnaire',[$question->yes, 0])}}" id="0" class="answer answer-yes" answer="yes">iya</button>
+            <button href="{{route('questionnaire',[$question->no, 0])}}" id="0" class="answer answer-no" answer="no">tidak</button>
           </div>
           <div class="page page0">
             <button id="back" class="back">Back</button>
@@ -157,8 +157,18 @@
       var me = $(this),
           id = me.attr('id');
       if(id == 'next'){
-        $('#form').css({ right: "450px", opacity: "0", "z-index": "0" });
-        $('#form0').css({ left: "0", opacity: "1", "z-index": "9" });
+        if(document.forms['form'].name.value === ""){
+          // error value name kosong
+          console.log(me);
+          if(document.forms['form'].email.value === ""){
+            // error value email kosong
+            console.log(id);
+          }
+          else{
+            $('#form').css({ right: "450px", opacity: "0", "z-index": "0" });
+            $('#form0').css({ left: "0", opacity: "1", "z-index": "9" });
+          }
+        }
       }
       else if(id == 'submit'){
         var form = $('.form'),

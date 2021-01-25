@@ -38,8 +38,8 @@ class HomeController extends Controller
                 </div>
                 <div>
                     <input id='answer[".$i."]' type='hidden' name='answer[".$i."]' value=''>
-                    <button id='".$i."' href='".route('questionnaire',[$question->yes, $i])."' class='answer answer-yes' answer='yes'>yes</button>
-                    <button id='".$i."' href='".route('questionnaire',[$question->no, $i])."' class='answer answer-no' answer='no'>no</button>
+                    <button id='".$i."' href='".route('questionnaire',[$question->yes, $i])."' class='answer answer-yes' answer='yes'>iya</button>
+                    <button id='".$i."' href='".route('questionnaire',[$question->no, $i])."' class='answer answer-no' answer='no'>tidak</button>
                 </div>
                 <div class='page page".$i."'>
                     <button id='".$i."' class='back'>Back</button>

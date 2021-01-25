@@ -4,12 +4,18 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+		// \App\Models\User::factory(10)->create();
+		DB::table('users')->insert([
+			'name' => 'Admin',
+			'email' => 'admin@sabha.com',
+			'password' => Hash::make('sabha123')
+		]);
         DB::table('questions')->insert([
             'id' => '1',
 			'question' => 'Apakah Anda merasa bahu dan pinggul berukuran sama besar?',
@@ -34,19 +40,5 @@ class DatabaseSeeder extends Seeder
 	        'yes' => 'Persegi',
 	        'no' => 'Apple'
 		]);
-        // DB::table('pengisis')->insert([
-		// 	'nama' => 'Ferdian Maulana',
-	    //     'email' => 'ferdi.maulana@gmail.com',
-		// ]);
-        // DB::table('jawabans')->insert([
-		// 	'pengisis_id' => '1',
-        //     'pertanyaans_id' => '1',
-        //     'jawaban' => '1'
-		// ]);
-        // DB::table('jawabans')->insert([
-		// 	'pengisis_id' => '1',
-        //     'pertanyaans_id' => '2',
-        //     'jawaban' => '1'
-		// ]);
     }
 }

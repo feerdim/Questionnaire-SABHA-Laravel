@@ -26,7 +26,7 @@
 
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <a href="index3.html" class="brand-link">
-        <img src="#" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <img src="{{ asset('assets/img/Emboss Logo.png') }}" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">SABHA</span>
       </a>
 
@@ -46,6 +46,14 @@
                 <i class="nav-icon fas fa-home"></i>
                 <p>
                   Hasil
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout').submit();">
+                <i class="nav-icon fas fa-sign-out-alt"></i>
+                <p>
+                  Log Out
                 </p>
               </a>
             </li>
@@ -87,5 +95,6 @@
 <!-- AdminLTE App -->
 <script src="{{ asset('assets/js/adminlte.min.js') }}"></script>
 @stack('scripts')
+<form id="logout" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
 </body>
 </html>
