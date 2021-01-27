@@ -103,12 +103,12 @@
         <div id="form" class="form-inner">
           <div class="question">
             <h3>
-              <div class="label">Nama</div>
-              <input type="text" class="fill" name="name" id ="name">
+              <input type="text" class="fill" name="name" id="name" placeholder="Nama Lengkap">
+              <div id="nama-err">Jangan dikosongkan</div>
             </h3>
             <h3>
-              <div class="label">Email</div>
-              <input type="text" class="fill" name="email" id="email">
+              <input type="text" class="fill" name="email" id="email" placeholder="Email">
+              <div id="email-err">Jangan dikosongkan</div>
             </h3>
           </div>
           <div class="page">
@@ -152,22 +152,28 @@
   <script src="{{ asset('assets/gsap/CSSRulePlugin.min.js') }}"></script>
   <script src="{{ asset('assets/js/script.js') }}"></script>
   <script>
+    $('input#name').keypress(function(){
+      $('#nama-err').css({ display: "none"});
+    })
+
+    $('input#email').keypress(function(){
+      $('#email-err').css({ display: "none"});
+    })
+
     $('body').on('click', '.next', function(){
       event.preventDefault();
       var me = $(this),
           id = me.attr('id');
       if(id == 'next'){
-        if(document.forms['form'].name.value === ""){
-          // error value name kosong
-          console.log(me);
-          if(document.forms['form'].email.value === ""){
-            // error value email kosong
-            console.log(id);
-          }
-          else{
-            $('#form').css({ right: "450px", opacity: "0", "z-index": "0" });
-            $('#form0').css({ left: "0", opacity: "1", "z-index": "9" });
-          }
+        if(document.forms['form'].name.value == ""){
+          $('#nama-err').css({ display: "block"});
+        }
+        if(document.forms['form'].email.value == ""){
+          $('#email-err').css({ display: "block"});
+        }
+        if(document.forms['form'].name.value != "" && document.forms['form'].email.value != ""){
+          $('#form').css({ right: "450px", opacity: "0", "z-index": "0" });
+          $('#form0').css({ left: "0", opacity: "1", "z-index": "9" });
         }
       }
       else if(id == 'submit'){
@@ -225,12 +231,12 @@
           id2 = id+1,
           value = $('#form'+id2),
           page = $('.page'+id);
-      if(answer==='yes'){
+      if(answer=='yes'){
         document.getElementById('answer['+id+']').setAttribute('value','1');
         $('#'+id+'.answer-yes').addClass('colored');
         $('#'+id+'.answer-no').removeClass('colored')
       }
-      else if(answer==='no'){
+      else if(answer=='no'){
         document.getElementById('answer['+id+']').setAttribute('value','0');
         $('#'+id+'.answer-no').addClass('colored');
         $('#'+id+'.answer-yes').removeClass('colored')

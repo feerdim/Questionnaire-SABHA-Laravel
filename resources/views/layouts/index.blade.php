@@ -70,7 +70,7 @@
       <strong>Copyright &copy; 2021 <a href="https://sabha.com">SABHA</a>.</strong>
       All rights reserved.
       <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> 0.0.4-b
+        <b>Version</b> 0.0.5-b
       </div>
     </footer>
   </div>

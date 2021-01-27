@@ -4,7 +4,7 @@ Route::get('/', 'HomeController@index')->name('welcome');
 Route::get('questionnaire/{id}/{i}', 'HomeController@questionnaire')->name('questionnaire');
 Route::post('result', 'HomeController@result')->name('result');
 
-Auth::routes(['register' => false]);
+Auth::routes(['register' => false, 'confirm' => false, 'reset' => false]);
 
 // Route::middleware('auth')->group(function(){
     Route::prefix('question')->group(function(){

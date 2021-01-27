@@ -3,34 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
     <link rel="stylesheet" href="{{ asset('assets/css/auth.css') }}">
 </head>
 <body>
     <div class="container">
         <div class="outer">
             <nav></nav>
-            <form method="POST" action="{{ route('login') }}">
-                <main>
+            <main>
+                <form method="POST" action="{{ route('login') }}">
                     @csrf
-                    <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="Email" required autocomplete="email" autofocus>
-                    <input type="password" id="password" name="password" placeholder="Password" required autocomplete="current-password">
+                    <input class="@error('email')invalid @enderror" type="text" id="email" name="email" value="{{ old('email') }}" placeholder="Email">
+                    @error('email')
+                        <span id="email-err" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                    <input class="@error('password')invalid @enderror" type="password" id="password" name="password" placeholder="Password">
+                    @error('password')
+                        <span id="pass-err" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                     <div class="check">
-                        {{-- <input type="checkbox"> --}}
                         <input type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
                         <span>Remember Me</span>
                     </div>
                     <div class="btn-box">
                         <button>LOGIN</button>
                     </div>
-                </main>
-            </form>
-            <footer>
-                {{-- <p><a href="{{ route('password.request') }}">Forgot Your Password?</a></p> --}}
-                {{-- <p>Don't have an account? <a href="">Register</a> here.</p> --}}
-            </footer>  
+                </form>
+            </main>
         </div>
     </div>
 
+    <!-- jQuery -->
+    <script src="{{ asset('assets/jquery/jquery.min.js') }}"></script>
+    <script>
+        $('#email').keypress(function(){
+            if($('#email').hasClass("invalid")){
+                $('#email').removeClass("invalid");
+            }
+            $('#email-err').css({ display: "none"});
+        })
+
+        $('#password').keypress(function(){
+            if($('#password').hasClass("invalid")){
+                $('#password').removeClass("invalid");
+            }
+            $('#pass-err').css({ display: "none"});
+        })
+    </script>
 </body>
 </html>
