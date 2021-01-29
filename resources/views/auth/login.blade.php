@@ -30,7 +30,7 @@
                         <span>Remember Me</span>
                     </div>
                     <div class="btn-box">
-                        <button>LOGIN</button>
+                        <button>Login</button>
                     </div>
                 </form>
             </main>

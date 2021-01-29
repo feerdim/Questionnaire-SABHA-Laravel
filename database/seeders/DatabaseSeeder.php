@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
 		// \App\Models\User::factory(10)->create();
 		DB::table('users')->insert([
 			'name' => 'Admin',
-			'email' => 'admin@sabha.com',
+			'email' => 'admin@sabhaindonesia.id',
 			'password' => Hash::make('sabha123')
 		]);
         DB::table('questions')->insert([

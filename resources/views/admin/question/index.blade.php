@@ -1,6 +1,6 @@
-@extends('layouts.index')
+@extends('layouts.admin')
 
-@section('title', 'SABHA')
+@section('title', 'SABHA | Pertanyaan')
 
 @section('content')
     <div class="content-header">

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-// use App\Providers\RouteServiceProvider;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -16,11 +16,11 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $messages = [
-            'email.required' => 'Email is required',
-            'email.email' => 'Email is not valid',
-            'email.exists' => "Email doesn't exists",
-            'password.required' => 'Password is required',
-            'password.min' => 'Password must be at least 8 characters'
+            'email.required' => 'Email harus diisi',
+            'email.email' => 'Email tidak valid',
+            'email.exists' => "Email tidak ada",
+            'password.required' => 'Password harus diisi',
+            'password.min' => 'Password minimal 8 karakter'
         ];
 
         $validator = Validator::make($request->all(), [
@@ -36,12 +36,12 @@ class LoginController extends Controller
             }
 
             return redirect()->back()->withInput($request->only('email', 'password', 'remember'))->withErrors([
-                'password' => 'Wrong password',
+                'password' => 'Password salah',
             ]);
         }
     }
 
-    // protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = RouteServiceProvider::HOME;
 
     public function __construct()
     {
