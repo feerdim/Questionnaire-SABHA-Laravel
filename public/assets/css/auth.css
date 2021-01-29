@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Lato-light";
-    src: url('../fonts/Lato-Light.ttf');
+    src: url('../main/fonts/Lato-Light.ttf');
 }
 
 * {
@@ -69,22 +69,18 @@ form input {
     width: 125%;
     padding: 3px;
     font-size: smaller;
-    display: block;
+    display: none;
 }
 #email-err {
     margin-bottom: 15px;
-}
-.invalid{
-    border: 1px solid rgba(255, 0, 0, .7);
 }
 .check {
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 125%;
+    width: 100%;
     padding-right: 20px;
     margin: 30px;
-    /* background: green;s */
     justify-content: flex-start;
 }
 .check input {
@@ -93,7 +89,7 @@ form input {
 .check span {
     display: inline-block;
     font-size: 18px;
-    width: 100%;
+    width: 80%;
 }
 
 .btn-box {
@@ -123,11 +119,17 @@ footer a {
 }
 
 @media screen and (max-width : 670px){
+    #email-err, #pass-err {
+        width: 80%;
+    }
+    .check {
+        width: 80%;
+    }
     .outer {
         width: 70%;
     }
     main input {
-        width: 100%;
+        width: 80%;
     }
 }
 

@@ -21,10 +21,10 @@
             </div>
             <div class="nav-links">
                 <ul>
-                    <li><a href=""> Beranda </a></li>
-                    <li><a href=""> Produk </a></li>
-                    <li><a href=""> Tentang kami </a></li>
-                    <li><a href="https://findyourshape.sabhaindonesia.id"> Cek bentuk tubuh </a></li>
+                    <li><a href="#"> Beranda </a></li>
+                    <li><a href="#"> Produk </a></li>
+                    <li><a href="{{ route('about') }}"> Tentang Kami </a></li>
+                    <li><a href="https://findyourshape.sabhaindonesia.id"> Cek Bentuk Tubuh </a></li>
                 </ul>
             </div> 
         </nav>
@@ -34,7 +34,7 @@
                 <div class="content">
                     <h3>fashion</h3>
                     <h1>Lorem ipsum dolor, sit amet.</h1>
-                    <span class="tombol">See More</span>
+                    <span class="tombol"><a href="">See more</a></span>
                 </div>
             </div>
             <div class="main-image">
@@ -42,7 +42,7 @@
                 <div class="content">
                     <h3>fashion</h3>
                     <h1>Lorem ipsum dolor, sit amet.</h1>
-                    <span class="tombol">See More</span>
+                    <span class="tombol"><a href="">See more</a></span>
                 </div>
             </div>
             <div class="main-image">
@@ -50,7 +50,15 @@
                 <div class="content">
                     <h3>fashion</h3>
                     <h1>Lorem ipsum dolor, sit amet.</h1>
-                    <span class="tombol">See More</span>
+                    <span class="tombol"><a href="">See More</a></span>
+                </div>
+            </div>
+            <div class="main-image">
+                <div class="main-bg image-4"></div>
+                <div class="content cek">
+                    <h1>Cek bentuk tubuh</h1>
+                    <h3>Merupakan salah satu fitur SABHA dimana dapat menentukan bentuk tubuh anda.Setelah mengetahui bentuk tubuh anda, akan diberikan rekomendasi melulai sesi konsultasi yang dapat dilakukan via whatsapp</h3>
+                    <span class="tombol "><a href="">cek tubuh</a></span>
                 </div>
             </div>
             
@@ -104,7 +112,7 @@
     </div>
 
 <script src="{{ asset('assets/gsap/gsap.min.js') }}"></script>
-<script src="{{ asset('assets/gsap/CSSRulePlugin.min.js') }}"></script>
+<script src="{{ asset('assets/gsap/ScrollTrigger.min.js') }}"></script>
 <script src="{{ asset('assets/js/home.js') }}"></script>    
 </body>
 </html>

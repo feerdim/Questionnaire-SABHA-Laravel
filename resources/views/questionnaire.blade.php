@@ -184,7 +184,7 @@
           success: function(data){
             $('.modal-inner').append('<h1>'+data.bentuk+'</h1>');
             href='https://api.whatsapp.com/send?phone=6281317943867&text='+data.chat;
-            $('.modal-inner').append('<a href="'+href+'"><button id="home_page">Konsultasi!</button></a>');
+            $('.modal-inner').append('<a href="'+href+'"><button id="home_page">Konsultasi Disini!</button></a>');
           },
           error: function(xhr){
           }
