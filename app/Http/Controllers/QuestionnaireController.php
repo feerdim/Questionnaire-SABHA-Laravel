@@ -12,8 +12,10 @@ class QuestionnaireController extends Controller
 {
     public function index()
     {
-        $question = Question::first();
-        return view('questionnaire', ['question' => $question]);
+        $questions = Question::get();
+        // dd($questions);
+        // dd($questions->first()->no);
+        return view('new', ['questions' => $questions]);
     }
 
     public function form($id, $i)

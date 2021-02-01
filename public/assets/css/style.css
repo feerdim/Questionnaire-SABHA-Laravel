@@ -106,11 +106,8 @@ body {
     font-weight: 900;
 }
 .next-button {
-    margin-top: 100px;
     position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, 0%);
+    top: 75%;
     transition: .3s;
     opacity: .5;
     background: white;  
@@ -120,10 +117,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     z-index: 2;
 }
 .next-button:hover {
-    transform: scale(1.2) translateX(-48%);
+    transform: scale(1.2);
 }
 .next-button img {
     transform: scale(.5);
@@ -258,6 +256,7 @@ form {
 #nama-err, #email-err {
     font-size: 17px;
     padding: 5px;
+    /*padding-left: 3.1rem;*/
     color: rgba(255, 0, 0, .8);
     display: none;
     text-align: left;
@@ -294,8 +293,8 @@ form {
 }
 .next, .back {
     margin: 20px;
-    width: 80px;
-    height: 40px;
+    width: 5.75rem;
+    height: 2.25rem;
     color: black;
     display: flex;
     justify-content: center;
@@ -417,5 +416,6 @@ form {
     #nama-err, #email-err {
         transform: translateX(15%);
         font-size: 12px;
+        padding-left: 0.4rem;
     }
 }

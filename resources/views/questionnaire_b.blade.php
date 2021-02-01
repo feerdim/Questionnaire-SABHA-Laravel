@@ -118,12 +118,15 @@
         </div>
         <div id="form0" class="form-inner">
           <div class="question">
-            <h3>{{ $questions->first()->question }}</h3>
+            <h3>{{ $question->question }}</h3>
           </div>
           <div>
             <input id="answer[0]" type="hidden" name="answer[0]" value="">
-            <button id="0" class="answer answer-yes" answer="yes" value="{{ $questions->first()->yes }}">iya</button>
-            <button id="0" class="answer answer-no" answer="no" value="{{ $questions->first()->no }}">tidak</button>
+            <button href="{{route('questionnaire.form',[$question->yes, 0])}}" id="0" class="answer answer-yes" answer="yes">iya</button>
+            <button href="{{route('questionnaire.form',[$question->no, 0])}}" id="0" class="answer answer-no" answer="no">tidak</button>
+          </div>
+          <div class="page page0">
+            <button id="back" class="back">Back</button>
           </div>
         </div>
       </form>
@@ -135,8 +138,8 @@
       </div>
     </div>
   </div>
-  <div class="follower"></div>
-  <div class="cursor"></div>
+    <div class="follower"></div>
+    <div class="cursor"></div>
 
   <!-- jQuery -->
   <script src="{{ asset('assets/jquery/jquery.min.js') }}"></script>
@@ -144,15 +147,6 @@
   <script src="{{ asset('assets/gsap/CSSRulePlugin.min.js') }}"></script>
   <script src="{{ asset('assets/js/script.js') }}"></script>
   <script>
-    var question = new Array();
-    @foreach($questions as $i=>$question)
-      question[{{$question->id}}] = {
-        'question' : '{{$question->question}}',
-        'yes' : '{{$question->yes}}',
-        'no' : '{{$question->no}}'
-      };
-    @endforeach
-    console.log(question);
     $('input#name').keypress(function(){
       $('#nama-err').css({ display: "none"});
     })
@@ -177,42 +171,7 @@
           $('#form0').css({ left: "0", opacity: "1", "z-index": "9" });
         }
       }
-    })
-
-    $('body').on('click', '.answer', function(){
-      event.preventDefault();
-      var me = $(this),
-          answer = me.attr('answer'),
-          value = me.attr('value'),
-          url = me.attr('href'),
-          id = parseInt(me.attr('id')),
-          id2 = id+1,
-          div = me.parents('#form'+id);
-      console.log(value);
-      console.log($.isNumeric(value));
-      if(answer=='yes'){
-          document.getElementById('answer['+id+']').setAttribute('value','1');
-      }
-      else if(answer=='no'){
-          document.getElementById('answer['+id+']').setAttribute('value','0');
-      }
-      if($.isNumeric(value)){
-        var form = "<div id='form"+id2+"' class='form form-inner'>"+
-                "<div class='question'>"+
-                    "<h3>"+question[value].question+"</h3>"+
-                "</div>"+
-                "<div>"+
-                    "<input id='answer["+id2+"]' type='hidden' name='answer["+id2+"]' value=''>"+
-                    "<button id='"+id2+"' class='answer answer-yes' answer='yes' value='"+question[value].yes+"'>iya</button>"+
-                    "<button id='"+id2+"' class='answer answer-no' answer='no' value='"+question[value].no+"'>tidak</button>"+
-                "</div>"+
-            "</div>";
-          console.log(form);
-          div.after(form);
-          $('#form'+id).css({ right: "450px", opacity: "0", "z-index": "0" });
-          $('#form'+id2).css({ left: "0", opacity: "1", "z-index": "9" });
-      }
-      else{
+      else if(id == 'submit'){
         var form = $('.form'),
             url = form.attr('action');
         $.ajax({
@@ -236,6 +195,67 @@
         tl.from('.modal', {width : "50%"})
         tl.from('.modal-inner',{scale: 1.5}, "-=1")
       }
+      else{
+        var id = parseInt(me.attr('id')),
+            id0 = id-1;
+        $('#form'+id0).css({ right: "450px", opacity: "0", "z-index": "0" });
+        $('#form'+id).css({ left: "0", opacity: "1", "z-index": "9" });
+      }
+    })
+
+    $('body').on('click', '.back', function(){
+      event.preventDefault();
+      var me = $(this),
+          id = me.attr('id');
+      if(id == 'back'){
+        $('#form0').css({ right: "450px", opacity: "0", "z-index": "0" });
+        $('#form').css({ left: "0", opacity: "1", "z-index": "9" });
+      }
+      var me = $(this),
+          id = parseInt(me.attr('id')),
+          id0 = id-1;
+      $('#form'+id).css({ right: "450px", opacity: "0", "z-index": "0" });
+      $('#form'+id0).css({ left: "0", opacity: "1", "z-index": "9" });
+    })
+
+    $('body').on('click', '.answer', function(){
+      event.preventDefault();
+      var me = $(this),
+          answer = me.attr('answer'),
+          url = me.attr('href'),
+          id = parseInt(me.attr('id')),
+          div = me.parents('#form'+id),
+          id2 = id+1,
+          value = $('#form'+id2),
+          page = $('.page'+id);
+      if(answer=='yes'){
+        document.getElementById('answer['+id+']').setAttribute('value','1');
+        $('#'+id+'.answer-yes').addClass('colored');
+        $('#'+id+'.answer-no').removeClass('colored')
+      }
+      else if(answer=='no'){
+        document.getElementById('answer['+id+']').setAttribute('value','0');
+        $('#'+id+'.answer-no').addClass('colored');
+        $('#'+id+'.answer-yes').removeClass('colored')
+      }
+      $.ajax({
+        url: url,
+        type: 'GET',
+        dataType: 'json',
+        success: function(pertanyaan){
+          if(value.length){
+            value.nextAll().remove().end().remove();
+            page.find('.next').remove();
+            div.after(pertanyaan.form);
+            page.append(pertanyaan.tombol);
+          }
+          else{
+            div.after(pertanyaan.form);
+            page.find('.next').remove();
+            page.append(pertanyaan.tombol);
+          }
+        }
+      })
     })
   </script>
 </body>

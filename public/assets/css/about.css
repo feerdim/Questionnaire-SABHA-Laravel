@@ -17,11 +17,34 @@
     font-family: 'Playfair Display', serif;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    cursor: none;
 }
 
 .container {
     display: flex;
     flex-direction: column;
+}
+.cursor, .follower {
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    pointer-events: none;
+}
+.cursor {
+    width: 10px;
+    height: 10px;
+    border: 1px solid black;
+    background: white;
+    z-index: 99;
+}
+.follower {
+    width: 30px;
+    height: 30px;
+    background: black;
+    border: 2px solid white;
+    opacity: .8;
+    z-index: 98;
 }
 
 /* nav ======================================== */
@@ -56,6 +79,7 @@ nav {
     left: 10%;
     opacity: 0;
     z-index: 2;
+    display: none;
 }
 .title-bars img {
     width: 10vw;
@@ -223,7 +247,6 @@ main {
     color: white;
     padding: 10px;
     border-radius: 5px;
-    cursor: pointer;
     opacity: .7;
     transition: .2s;
 }
@@ -274,7 +297,7 @@ main {
     background-position: center;
     width: 70%;
     height: 50%;
-    opacity: .5;
+    opacity: 0.8;
     margin-top: -200px;
 }
 .exp {
@@ -449,10 +472,17 @@ footer .content {
         font-size: 20px;
     }
     .title-bars {
+        width: 30px;
+        height: 30px;
         opacity: 1;
-        cursor: pointer;
-        opacity: .5;
         transform: scale(.7);
+        display: block;
+        background: url('../img/navbar/menu-icon-19347.png');
+        background-size: contain;
+    }
+    .title-bars.close {
+        background: url('../img/navbar/pngjoy.com_close-icon-close-button-png-icon-transparent-png_1062318.png');
+        background-size: contain;
     }
     .nav-links li.dropdown ul {
         position: absolute;
@@ -482,7 +512,10 @@ footer .content {
         transform: translateX(0);
     }
     .nav-links li {
-        padding-top: 80px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        width: 100%;
+        text-align: center;
     }
     main {
         margin-top: -50px;
@@ -611,9 +644,12 @@ footer .content {
     .subcontent h1 {
         font-size: 30px;
     }
-    /* .subcontent .exp {
-        font-size: 15px;
-    } */
+    .intro-title, .intro-list {
+        font-size: 13px;
+    }
+    .intro-list li {
+        font-size: 22px;
+    }
     .inner {
         position: relative;
     }

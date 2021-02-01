@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SABHA | Beranda</title>
+    <link rel="icon" href="{{ asset('assets/img/icon2.png') }}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
@@ -12,9 +13,7 @@
     <div class="container">
         <nav>
             <div class="nav-title">
-                <div class="title-bars">
-                    <img src="{{ asset('assets/img/navbar/menu.png') }}" alt="bars" class="bars">
-                </div>
+                <div class="title-bars"></div>
                 <div class="nav-logo">
                     <a href=""><img src="{{ asset('assets/img/footer/Logo Gold.png') }}" alt=""></a>
                 </div>
@@ -85,9 +84,9 @@
                 <div class="footer-right">
                     <div class="location">
                         <p>Jalan Cisaranten Baru 1 No. 16 </p>
-                        <p>Kelurahan cisaranten Kulon</p>
+                        <p>Kelurahan Cisaranten Kulon</p>
                         <p>Kecamatan Arcamanik, Kota Bandung</p>
-                        <p class="copyright">All rights reserved</p>
+                        <p class="copyright">All Rights Reserved</p>
                     </div>
                 </div>   
             </div>  
@@ -110,9 +109,11 @@
             </div>
         </div>
     </div>
+    <div class="follower"></div>
+    <div class="cursor"></div>
 
 <script src="{{ asset('assets/gsap/gsap.min.js') }}"></script>
 <script src="{{ asset('assets/gsap/ScrollTrigger.min.js') }}"></script>
-<script src="{{ asset('assets/js/home.js') }}"></script>    
+<script src="{{ asset('assets/js/home.js') }}"></script>
 </body>
 </html>

@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SABHA | ABOUT US</title>
+    <title>SABHA | Tentang Kami</title>
+    <link rel="icon" href="{{ asset('assets/img/icon2.png') }}">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/about.css') }}">
 </head>
@@ -11,9 +12,7 @@
     <div class="container">
         <nav>
             <div class="nav-title">
-                <div class="title-bars">
-                    <img src="{{ asset('assets/img/navbar/menu-icon-19347.png') }}" alt="bars" class="bars">
-                </div>
+                <div class="title-bars"></div>
                 <div class="nav-logo">
                     <a href=""><img src="{{ asset('assets/img/footer/Logo Gold.png') }}" alt=""></a>
                 </div>
@@ -119,7 +118,7 @@
                 <div class="footer-left">
                     <div class="footer-logo"></div>
                     <p class="social-1"><img src="{{ asset('assets/img/footer/[CITYPNG.COM]HD White Outline Round Instagram Logo Icon PNG - 1600x1600.png') }}" alt="Black and white, dark grey, instagram icon">  @sabha_id</p>
-                    <p class="social-2"><img src="{{ asset('assets/img/footer/mail-24.png') }}" alt="mail">  sabha@gmail.com</p>
+                    <p class="social-2"><img src="{{ asset('assets/img/footer/mail-24.png') }}" alt="mail">  admin@sabhaindonesia.id</p>
                     <p class="copyright">Copyright <img src="{{ asset('assets/img/footer/pngaaa.com-1068047.png') }}" alt=""> 2021 Sabha</p>
                 </div>
                 <div class="footer-right">
@@ -134,6 +133,8 @@
         </footer>
         <div class="overlay"></div>
     </div>
+    <div class="cursor"></div>
+    <div class="follower"></div>
 
 <script src="{{ asset('assets/gsap/gsap.min.js') }}"></script>
 <script src="{{ asset('assets/gsap/ScrollTrigger.min.js') }}"></script>

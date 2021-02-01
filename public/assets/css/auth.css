@@ -69,7 +69,10 @@ form input {
     width: 125%;
     padding: 3px;
     font-size: smaller;
-    display: none;
+    /* display: none; */
+}
+.invalid {
+    border: 1px solid rgba(255, 0, 0, .7);
 }
 #email-err {
     margin-bottom: 15px;
