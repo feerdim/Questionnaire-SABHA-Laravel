@@ -19,6 +19,7 @@
             </div>
             <div class="nav-links">
                 <ul>
+                    <li><a href=""><img src="/images/navbar/Emboss Logo1.png" alt=""></a></li>
                     <li><a href="{{ route('home') }}"> Beranda </a></li>
                     <li><a href="#"> Produk </a></li>
                     <li><a href="#"> Tentang Kami </a></li>
@@ -31,7 +32,6 @@
                 <div class="main-content">
                     <h1>SABHA</h1>
                     <h2>YOU ARE WHAT YOU WEAR</h2>
-                    <img src="{{ asset('assets/img/main/Img/hand-painted-fashion-women/moda 150ppp-01.jpg') }}" alt="">
                 </div>
             </div>
             
@@ -39,24 +39,18 @@
                 <div class="main-title">
                     <h1>ABOUT US</h1>
                 </div>
-                <div class="subcontent-0 subcontent">
-                    <h1>Visi</h1>
-                    <div class="inner">
-                        <div class="sub-images image-0"></div>
-                        <div class="exp">
-                            <ul>
-                                <li>menjadi brand lokal yang mendukung program sustainable</li>
-                                <li>slow fashion agar industri fashion tidak berdampak buruk untuk lingkungan.</li>
-                                <li>dapat menginspirasi banyak wanita untuk tetap percaya diri terhadap bentuk tubuh diri sendiri.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
                 <div class="subcontent-5 subcontent">
-                    <h1>Misi</h1>
-                    <div class="inner">
+                    <div class="inner inner-1">
                         <div class="sub-images image-5"></div>
                         <div class="exp">
+                            <h1>Visi</h1>
+                            <ul>
+                                <li>Menjadi brand lokal yang mendukung program sustainable</li>
+                                <li>Slow fashion agar industri fashion tidak berdampak buruk untuk lingkungan.</li>
+                                <li>Dapat menginspirasi banyak wanita untuk tetap percaya diri terhadap bentuk tubuh diri sendiri.</li>
+                            </ul>
+                            <br><br><br><br>
+                            <h1>Misi</h1>
                             <ul>
                                 <li>Mencoba memilih bahan ecofriendly untuk produksi sabha</li>
                                 <li>Menjalankan program slow fashion</li>
@@ -68,36 +62,26 @@
                 </div>
 
                 <div class="subcontent-1 subcontent">
-                    <h1>Our Services</h1>
-                    <div class="inner">
-                        <div class="sub-images image-1"></div>
+                    <div class="inner inner-2">
                         <div class="exp">
+                            <h1>Our Services</h1>
                             <ul>
                                 <li>Lorem ipsum dolor sit amet.</li>
                                 <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt, mollitia.</li>
                                 <li>Lorem ipsum dolor sit, amet consectetur adipisicing.</li>
                             </ul>
                         </div>
+                        <div class="sub-images image-1"></div>
                     </div>
-                </div>
-                <div class="subcontent-2 subcontent">
-                    <h1>Our Goals</h1>
-                    <div class="inner">
+                    <div class="inner inner-3">
                         <div class="sub-images image-2"></div>
                         <div class="exp">
+                            <h1>Our Goals</h1>
                             <ul>
-                                <li>sabha.id menjadi brand yang bisa membantu para costumer     agar dapat memilih pakaian yang nyaman dan bagus dikenakan</li>
-                                <li>sabha.id bisa menjadi brand lokal yang dapat memasarkan  brand sabha secara global, baik didalam dan diluar negr</li>
-                                <li>sabha.id dapat menjadi trand fashion yang menginspirasi banyak kalangan.</li>
+                                <li>sabha.id menjadi brand yang bisa membantu kamu agar dapat memilih pakaian yang nyaman dan bagus dikenakan</li>
+                                <li>sabha.id bisa menjadi brand lokal yang dapat memasarkan  brand sabha secara global, baik di dalam dan di luar negri</li>
                             </ul>
                         </div>
-                    </div>
-                </div>
-                <div class="subcontent-3 subcontent">
-                    <h1>Journey</h1>
-                    <div class="inner">
-                        <div class="sub-images image-3"></div>
-                        <div class="exp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis tempore deleniti, fugiat quod aspernatur magnam, cumque nostrum aliquam expedita delectus consectetur quidem aut odio et nisi eaque labore optio possimus!</div>
                     </div>
                 </div>
             </div>
@@ -107,35 +91,37 @@
                 <h1>Let it shine on you</h1>  
             </div>
             <div class="header-logo">
-                <a href=""><img src="{{ asset('assets/img/footer/shopee-logo-40483.png') }}" alt="in"></a> 
-                <a href=""><img src="{{ asset('assets/img/footer/tokopedia-38846.png') }}" alt="mail"></a>  
+                <a href=""><img src="{{ asset('assets/img/footer/shopee-logo-40483.png') }}" alt="shopee"></a> 
+                <a href=""><img src="{{ asset('assets/img/footer/tokopedia.png') }}" alt="tokopedia"></a>
+                <a href=""><img src="{{ asset('assets/img/footer/instagram.png') }}" alt="instagram"></a>
+                <a href=""><img src="{{ asset('assets/img/footer/whatsapp.png') }}" alt="whatsapp"></a>
             </div>
-            <div class="header-words">Start shoping now</div>
+            <div class="header-words">Start shopping now!</div>
         </header>
         <div class="empty"></div>
         <footer>
             <div class="content">
                 <div class="footer-left">
                     <div class="footer-logo"></div>
-                    <p class="social-1"><img src="{{ asset('assets/img/footer/[CITYPNG.COM]HD White Outline Round Instagram Logo Icon PNG - 1600x1600.png') }}" alt="Black and white, dark grey, instagram icon">  @sabha_id</p>
-                    <p class="social-2"><img src="{{ asset('assets/img/footer/mail-24.png') }}" alt="mail">  admin@sabhaindonesia.id</p>
-                    <p class="copyright">Copyright <img src="{{ asset('assets/img/footer/pngaaa.com-1068047.png') }}" alt=""> 2021 Sabha</p>
+                    <a href="mailto:admin@sabhaindonesia.id" style="color: white; text-decoration: none;"><p class="social-2"><img src="{{ asset('assets/img/footer/mail-24.png') }}" alt="mail">     admin@sabhaindonesia.id</p></a>
+                    <p class="copyright"> Copyright <img src="{{ asset('assets/img/footer/pngaaa.com-1068047.png') }}" alt=""> 2021 Sabha</p>
                 </div>
                 <div class="footer-right">
                     <div class="location">
                         <p>Jalan Cisaranten Baru 1 No. 16 </p>
                         <p>Kelurahan Cisaranten Kulon</p>
                         <p>Kecamatan Arcamanik, Kota Bandung</p>
-                        <p class="copyright">All right reserved</p>
+                        <p class="copyright">All Rights Reserved</p>
                     </div>
                 </div>   
             </div>  
         </footer>
         <div class="overlay"></div>
     </div>
-    <div class="cursor"></div>
     <div class="follower"></div>
+    <div class="cursor"></div>
 
+<script src="{{ asset('assets/gsap/CSSRulePlugin.min.js') }}"></script>
 <script src="{{ asset('assets/gsap/gsap.min.js') }}"></script>
 <script src="{{ asset('assets/gsap/ScrollTrigger.min.js') }}"></script>
 <script src="{{ asset('assets/js/about.js') }}"></script>    

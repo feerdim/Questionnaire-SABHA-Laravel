@@ -33,6 +33,9 @@
       </div>
 
       <div class="prolog-2">
+        <h1 class="hide-outer hide-title">
+          <span class="hide-2">PROLOG</span>
+        </h1>
         <h3 class="hide-outer">
           <span class="hide-2">Dalam panduan ini, kita akan membahas cara yang benar </span>
         </h3 >
@@ -82,6 +85,7 @@
   </div>
   <div class="container">
     <div class="form-outer">
+      <div class="slider"></div>
       <nav> 
         <span class="nav-outer">
           <span class="nav-title">S</span>
@@ -233,8 +237,8 @@
         tl.to('.modal-bg', {visibility : 'visible'})
         tl.to('.form-outer', {'-webkit-filter':'blur(2px)', filter: 'blur(2px)'}, "-=1")
         tl.from('.modal', {height : "0%"})
-        tl.from('.modal', {width : "50%"})
-        tl.from('.modal-inner',{scale: 1.5}, "-=1")
+        // tl.from('.modal', {width : "50%"})
+        // tl.from('.modal-inner',{scale: 1.5}, "-=1")
       }
     })
   </script>

@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Lato-light";
-    src: url('../main/fonts/Lato-Light.ttf');
+    src: url('../fonts/Lato-Light.ttf');
 }
 
 * {
@@ -15,7 +15,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgb(119, 119, 119);
+    background: #e5cdb0;
 }
 nav {
     background: url('../img/Emboss\ Logo.png');
@@ -69,10 +69,7 @@ form input {
     width: 125%;
     padding: 3px;
     font-size: smaller;
-    /* display: none; */
-}
-.invalid {
-    border: 1px solid rgba(255, 0, 0, .7);
+    display: none;
 }
 #email-err {
     margin-bottom: 15px;

@@ -20,6 +20,7 @@
             </div>
             <div class="nav-links">
                 <ul>
+                    <li><a href=""><img src="{{ asset('assets/img/navbar/icon.png') }}" alt=""></a></li>
                     <li><a href="#"> Beranda </a></li>
                     <li><a href="#"> Produk </a></li>
                     <li><a href="{{ route('about') }}"> Tentang Kami </a></li>
@@ -67,18 +68,19 @@
                 <h1>Let it shine on you</h1>  
             </div>
             <div class="header-logo">
-                <a href=""><img src="{{ asset('assets/img/footer/shopee-logo-40483.png') }}" alt="in"></a> 
-                <a href=""><img src="{{ asset('assets/img/footer/tokopedia-38846.png') }}" alt="mail"></a>
+                <a href=""><img src="{{ asset('assets/img/footer/shopee-logo-40483.png') }}" alt="shopee"></a> 
+                <a href=""><img src="{{ asset('assets/img/footer/tokopedia.png') }}" alt="tokopedia"></a>
+                <a href=""><img src="{{ asset('assets/img/footer/instagram.png') }}" alt="instagram"></a>
+                <a href=""><img src="{{ asset('assets/img/footer/whatsapp.png') }}" alt="whatsapp"></a>
             </div>
-            <div class="header-words">Stay update? Just visit our social media!</div>
+            <div class="header-words">Start shopping now!</div>
         </header>
         <div class="empty"></div>
         <footer>
             <div class="content">
                 <div class="footer-left">
                     <div class="footer-logo"></div>
-                    <p class="social-1"><img src="{{ asset('assets/img/footer/[CITYPNG.COM]HD White Outline Round Instagram Logo Icon PNG - 1600x1600.png') }}" alt="Instagram logo">    @sabha_id</p>
-                    <p class="social-2"><img src="{{ asset('assets/img/footer/mail-24.png') }}" alt="">     admin@sabhaindonesia.id</p>
+                    <a href="mailto:admin@sabhaindonesia.id" style="color: white; text-decoration: none;"><p class="social-2"><img src="{{ asset('assets/img/footer/mail-24.png') }}" alt="">     admin@sabhaindonesia.id</p></a>
                     <p class="copyright"> Copyright <img src="{{ asset('assets/img/footer/pngaaa.com-1068047.png') }}" alt=""> 2021 Sabha</p>
                 </div>
                 <div class="footer-right">
@@ -112,6 +114,7 @@
     <div class="follower"></div>
     <div class="cursor"></div>
 
+<script src="{{ asset('assets/gsap/CSSRulePlugin.min.js') }}"></script>
 <script src="{{ asset('assets/gsap/gsap.min.js') }}"></script>
 <script src="{{ asset('assets/gsap/ScrollTrigger.min.js') }}"></script>
 <script src="{{ asset('assets/js/home.js') }}"></script>
