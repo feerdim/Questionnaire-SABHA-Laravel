@@ -156,7 +156,6 @@
         'no' : '{{$question->no}}'
       };
     @endforeach
-    console.log(question);
     $('input#name').keypress(function(){
       $('#nama-err').css({ display: "none"});
     })
@@ -192,8 +191,6 @@
           id = parseInt(me.attr('id')),
           id2 = id+1,
           div = me.parents('#form'+id);
-      console.log(value);
-      console.log($.isNumeric(value));
       if(answer=='yes'){
           document.getElementById('answer['+id+']').setAttribute('value','1');
       }
@@ -211,7 +208,6 @@
                     "<button id='"+id2+"' class='answer answer-no' answer='no' value='"+question[value].no+"'>tidak</button>"+
                 "</div>"+
             "</div>";
-          console.log(form);
           div.after(form);
           $('#form'+id).css({ right: "450px", opacity: "0", "z-index": "0" });
           $('#form'+id2).css({ left: "0", opacity: "1", "z-index": "9" });
@@ -237,8 +233,6 @@
         tl.to('.modal-bg', {visibility : 'visible'})
         tl.to('.form-outer', {'-webkit-filter':'blur(2px)', filter: 'blur(2px)'}, "-=1")
         tl.from('.modal', {height : "0%"})
-        // tl.from('.modal', {width : "50%"})
-        // tl.from('.modal-inner',{scale: 1.5}, "-=1")
       }
     })
   </script>

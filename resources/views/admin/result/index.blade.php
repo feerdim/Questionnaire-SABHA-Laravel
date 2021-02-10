@@ -78,7 +78,6 @@
 
   $('#table tbody').on('click', '.detail', function () {
     event.preventDefault();
-    console.log(this);
     var tr = $(this).closest('tr');
     var row = detail.row( tr );
     if ( row.child.isShown() ) {
